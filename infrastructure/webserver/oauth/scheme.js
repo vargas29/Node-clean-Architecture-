@@ -1,6 +1,6 @@
 'use strict';
 
-const AuthorizationController = require('../../../interfaces/controllers/AuthorizationController');
+const AuthorizationController = require('../../../infrastructure/interfaces/Controllers/AuthorizationController');
 
 module.exports = () => {
   return {

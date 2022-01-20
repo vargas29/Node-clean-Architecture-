@@ -35,13 +35,32 @@ User.findById = (id, result) => {
   });
 };
 
-User.getAll = (title, result) => {
+
+
+User.getAll = (id, result) => {
   let query = "SELECT * FROM Users";
 
-  if (title) {
-    query += ` WHERE title LIKE '%${title}%'`;
+  if (id) {
+    query += ` WHERE id LIKE '%${title}%'`;
   }
 
+  sql.query(query, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("Users: ", res);
+    result(null, res);
+  });
+};
+
+User.getUsersByFistName = (title, result) => {
+  let query = "select Distinct firstName FROM Customers ORDER BY firstName ASC";
+
+
+ 
   sql.query(query, (err, res) => {
     if (err) {
       console.log("error: ", err);
@@ -67,28 +86,7 @@ User.getAllPublished = result => {
   });
 };
 
-User.updateById = (id, User, result) => {
-  sql.query(
-    "UPDATE Users SET title = ?, description = ?, published = ? WHERE id = ?",
-    [User.title, User.description, User.published, id],
-    (err, res) => {
-      if (err) {
-        console.log("error: ", err);
-        result(null, err);
-        return;
-      }
 
-      if (res.affectedRows == 0) {
-        // not found User with the id
-        result({ kind: "not_found" }, null);
-        return;
-      }
-
-      console.log("updated User: ", { id: id, ...User });
-      result(null, { id: id, ...User });
-    }
-  );
-};
 
 User.remove = (id, result) => {
   sql.query("DELETE FROM Users WHERE id = ?", id, (err, res) => {

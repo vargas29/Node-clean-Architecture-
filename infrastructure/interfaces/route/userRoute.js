@@ -1,6 +1,6 @@
 'use strict';
 
-const UsersController = require('../controllers/UsersController');
+const UsersController = require('../Controllers/controllerUser');
 
 module.exports = {
   name: 'users',
@@ -14,6 +14,15 @@ module.exports = {
         handler: UsersController.findUsers,
         options: {
           description: 'List all users',
+          tags: ['api'],
+        },
+      },
+      {
+        method: 'GET',
+        path: '/usersFirstName',
+        handler: UsersController.findUsersByFirstName,
+        options: {
+          description: 'List all users with FirstName',
           tags: ['api'],
         },
       },

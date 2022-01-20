@@ -18,7 +18,7 @@ module.exports = class {
     throw new Error('ERR_METHOD_NOT_IMPLEMENTED');
   }
 
-  getByEmail(email) {
+  getByFirstName() {
     throw new Error('ERR_METHOD_NOT_IMPLEMENTED');
   }
 

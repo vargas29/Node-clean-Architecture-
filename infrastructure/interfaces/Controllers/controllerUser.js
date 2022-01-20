@@ -35,6 +35,20 @@ module.exports = {
     return users.map(serviceLocator.userSerializer.serialize)
   },
 
+  async findUsersByFirstName(request) {
+
+    // Context
+    const serviceLocator = request.server.app.serviceLocator;
+
+    // Treatment
+    const users = await ListUserByName(serviceLocator);
+
+    // Output
+    return users.map(serviceLocator.userSerializer.serialize)
+  },
+
+
+
   async getUser(request) {
 
     // Context
