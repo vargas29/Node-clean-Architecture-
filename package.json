@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-clean-a",
+  "version": "1.0.0",
+  "description": "project chanllenge \u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "twilio": "^3.73.0",
+    "body-parser": "~1.0.1",
+    "cors": "2.8.1",
+    "mssql": "^6.2.1"
+  }
+}
